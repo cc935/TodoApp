@@ -1,0 +1,177 @@
+:root {
+    --background:rgb(0,0,0);
+    --primary-colors:#1c1d20;
+    --secondry-color:#4a4d57;
+    --accent-color:rgb(95,127,226);
+    --text-color:rgb(247,245,246);
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    outline:none;
+    transition:all 0.2s ease
+}
+
+::-webkit-scrollbar{
+    width:10px;
+    background:var(--accent-color);
+}
+
+html {
+    font-family:'Segoe UI', Tahoma, Genava, Verdana, sans-serif;
+    color:var(--text-color);
+    font-size:16pt;
+}
+
+body {
+    overflow-y:scroll;
+    background:var(--background);
+    display:flex;
+    align-items:center;
+    height:100vh;
+    flex-direction:column;
+    animation:slide 1s ease-in-out 1;
+}
+
+@keyframes slide {
+    from {
+        opacity:0;
+        translate:0px 20px;
+    }
+    to {
+        translate:0px;
+        opacity:1;
+    }
+}
+
+.Title {
+    color:var(--accent-color);
+    font-size:3rem;
+    font-weight:800;
+    text-transform:uppercase;
+    text-align:center;
+    margin-top:100px;
+    margin-bottom:20px;
+}
+
+.wrapper {
+    width:700px;
+    max-width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+form {
+    position:relative;
+}
+
+.UserInput {
+    padding:12px 20px;
+    width:100%;
+    background:transparent;
+    border:2px solid var(--secondry-color);
+    border-radius:10px;
+    font:inherit;
+    color:var(--text-color);
+    caret-color:var(--accent-color);
+}
+
+.submitBtn {
+    position:absolute;
+    top:0;
+    right:10px;
+    background:var(--accent-color);
+    height:100%;
+    padding:0 30px;
+    border:none;
+    border-radius:10px;
+    font:inherit;
+    font-weight:600;
+    color:var(--background);
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+ul,form {
+    padding:0px 10px 0px 10px;
+}
+
+.todo-item {
+    margin-bottom:10px;
+    padding:0 16px;
+    background:var(--primary-colors);
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+}
+
+.todo-item .User-Text{
+    padding:15px;
+    padding-right:0;
+    flex-grow:1;   
+}
+
+.DeleteBtn {
+    padding:3px;
+    background:transparent;
+    border:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+}
+
+.costume-checkbox {
+    border:2px solid var(--accent-color);
+    border-radius:50%;
+    min-height:20px;
+    min-width:20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-shrink:0;
+}
+input[type="checkbox"]:checked ~ .costume-checkbox {
+    background:var(--accent-color);
+}
+
+input[type="checkbox"]:checked ~ .costume-checkbox svg {
+    fill:var(--primary-color);
+}
+
+input[type="checkbox"]:checked ~ .User-Text {
+    color:var(--secondry-color);
+    text-decoration:line-through;
+}
+
+input[type="checkbox"] {
+    display:none;
+}
+
+@media (max-width:500px){
+    html{
+        font-size:12pt;
+    }
+    .submitBtn {
+        position:unset;
+        width:100%;
+        margin-top:10px;
+        padding:15px;
+        height:auto;
+    }
+    h1 {
+        margin-top:50px;
+        font-size:15vw;
+    }
+    input[type="text"]{
+        border-radius:15px;
+    }
+    .submitBtn {
+        border-radius:15px;
+    }
+}
